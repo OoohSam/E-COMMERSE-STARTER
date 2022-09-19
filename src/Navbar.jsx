@@ -6,7 +6,7 @@ export default class NavBar extends Component {
       <nav className="navbar navbar-expand-lg bg-dark navbar-style ">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            THE_CODING_ANIMATOR
+            eCommerce
           </a>
           <button
             className="navbar-toggler"

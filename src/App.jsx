@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import MainComponent from "./MainContent";
+import CustomersList from "./CustomersList";
 import NavBar from "./Navbar";
+import ShoppingCart from "./ShoppingCart";
+import Product from "./Product";
 
 
 export default class App extends Component {
@@ -12,7 +14,7 @@ export default class App extends Component {
         
         <NavBar />
         
-        <MainComponent />
+        <ShoppingCart />
 
         
 
