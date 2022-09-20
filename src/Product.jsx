@@ -1,8 +1,16 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 
 export default class Product extends Component {
-    render(){
-        console.log(this.props)
-        return <div>Product #{this.props.id}</div>
-    }
+  render() {
+    return (
+      <div className="card">
+        <div className="card-body">
+          <div className="text-muted">Product #{this.props.id}</div>
+        </div>
+      </div>
+    );
+  }
 }
+
+//remember that the render fuction dictates how the information should display to 
+// the user
