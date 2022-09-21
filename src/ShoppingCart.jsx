@@ -20,11 +20,21 @@ export default class ShoppingCart extends Component {
 
         <div className="row">
           {this.state.products.map((x) => {
-            let { id, productName, price, quantity } = x;
-            return <Product key={id} id={id} />;
+            let { id, productName, price} = x;
+            return <Product
+            key={id} 
+            // id={id}
+            // productName={productName} 
+            // price={price}
+            product ={x}
+             
+            />;
           })}
         </div>
       </div>
     );
   }
 }
+
+//i understand why we passed the component
+//kwanza though you must describe it 

@@ -5,6 +5,8 @@ import ShoppingCart from "./ShoppingCart";
 import Product from "./Product";
 
 
+
+
 export default class App extends Component {
   
   render() {
@@ -22,6 +24,7 @@ export default class App extends Component {
     );
   }
 }
+
 
 
 //as per the systax of jsx every tag must be self closing
