@@ -6,6 +6,7 @@ export default class Product extends Component {
     id:this.props.id,
     productName:this.props.productName,
     price:this.props.price,
+    quantity:this.props.quantity
     
     
   };
@@ -18,33 +19,54 @@ export default class Product extends Component {
             <div className="text-muted">Product #{this.state.id}</div>
             <h5 className="pt-5 border-top">{this.state.productName}</h5>
             <div>${this.state.price}</div>
+            {/* <div className="card-foote text-right">{this.props.children}</div> */}
+            
           </div>
+          {/*the card-body ends here*/}
+            <div className="card-footer ">
+              <div className="float-left">
+                <span className="badge">{this.state.quantity}</span>
+
+                {/*THIS IS THE INCREMENT FUNCTION*/}   
+
+                <div className="btn-group">
+                  <button className="btn btn-outline-success" 
+                  onClick={ ()=>{
+                    this.props.onIncrement(this.state.productName)
+                  }}
+                  >
+                      +
+                  </button>
+
+                  {/*THIS IS THE DECREMENT FUNCTION*/}   
+
+                  <button className="btn btn-outline-success"
+                   onClick={ ()=>{                       
+                     this.props.onDecrement(this.state.productName)
+                    }}
+                    >
+                      -
+                   </button>
+                </div>
+              </div>
+
+              {/*float-left ends here*/}
+
+              <div className="float-right">{this.props.children}
+              </div>
+              </div>
+              {/*card footer ends here*/}
         </div>
       </div>
     );
   }
+
+  
 }
 
 
-// export default class Product extends Component{
-//   state={
-//     id:this.props.id,
-//     productName:this.props.productName,
-//     price:this.props.price,
-//   }
-//   render(){
-//     return(
-//       <div className="col-lg-5">
-//         Lorem ipsum dolor {this.state.price} sit amet consectetur adipisic
-//         ing elit. Dolor sapiente earum sit reiciendis? Quisquam 
-//         temporibus nam obcaecati illo reprehenderit facilis dolore cons
-//         ectetur facere tenetu
-//         r, maxime et? Voluptatibus ea reprehenderit ipsum.
-//       </div>
-//     )
-//   }
-// }
+
 
 //remember that the render fuction dictates how the information should display to
 // the user
-//Yet another beautiful day to be alive and be coding
+//Yet ano

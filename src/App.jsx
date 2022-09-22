@@ -17,6 +17,8 @@ export default class App extends Component {
         <NavBar />
         
         <ShoppingCart />
+        
+        {/* <CustomersList/> */}
 
         
 

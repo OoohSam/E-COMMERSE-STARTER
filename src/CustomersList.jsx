@@ -89,7 +89,7 @@ export default class CustomersList extends Component {
 
   onRefreshClick = () => {
     this.setState({
-      customerCount: 9009,
+      customerCount: this.state.customerCount + 9090,
     });
   };
 
