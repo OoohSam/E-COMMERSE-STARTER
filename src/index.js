@@ -24,4 +24,5 @@ ReactDOM.render(<App/>,document.getElementById("root"))
 //the ReactDOM.render is the method used to render out the programming and the design logic 
 //the design logic into the virtual dom and hence the final dom
 
-console.log("Everything is working FINE")
+console.log("JAVASCRIPT IS WORKING FINE")
+

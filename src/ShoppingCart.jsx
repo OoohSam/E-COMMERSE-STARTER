@@ -8,7 +8,7 @@ export default class ShoppingCart extends Component {
       { id: 2, productName: "Sony Camera", price: 4500, quantity: 0 },
       { id: 3, productName: "Samsung QLED TV", price: 77400, quantity: 0 },
       { id: 4, productName: "iPad Pro", price: 12400, quantity: 0 },
-      { id: 5, productName: "Xbox", price: 7780, quantity:0 },
+      { id: 5, productName: "Xbox", price: 7780, quantity: 0 },
       { id: 6, productName: "Dell Monitor", price: 890, quantity: 0 },
     ],
   };
@@ -17,81 +17,93 @@ export default class ShoppingCart extends Component {
     return (
       <div className="container-fluid">
         <h4> Shopping cart</h4>
-
         <div className="row">
           {this.state.products.map((x) => {
-            let { id, productName, price,quantity } = x;
-            
-            return <Product
-              key={id}
-              id={id}
-              productName={productName}
-              price={price}
-              quantity={quantity}
-              onIncrement={this.handleIncrement}
-              onDecrement={this.handleDecrement}
+            let { id, productName, price, quantity } = x;
 
+            return (
+              <Product
+                key={id}
+                // productName={productName}
+                // price={price}
+                // quantity={quantity}
+                product = {x}
+                onIncrement = {this.handleIncrement}
+                onDecrement = {this.handleDecrement}
               >
-                <button className="btn btn-primary" onClick={ ()=>{ this.buyNow(productName)}  }>Buy Now</button>
-            </Product>;
+                <button className="btn btn-primary" > Buy Now </button>
+              </Product>
+            );
           })}
-        </div>  
+        </div>
       </div>
     );
   }
 
-  //render ends here
 
-  // updatethecount = ()=> {
-  //   console.log("this is what updating the count looks like")
-  //   this.setState
-  //   //THIS IS MY ALTERNATIVE TO //
-  // }
-
+  handleIncrement = (product) => {
     
- 
+    console.log(`You have increased the number of ${JSON.stringify(product) }`);
+    let allProducts = [...this.state.products]
+    
 
- handleIncrement = (productName) =>{
-    console.log(typeof productName)
-    let allProducts = {...this.state.products}
-    let index = allProducts.indexOf(productName)
+    // let tmp = undefined;
+
+    // // console.log(allProducts)
+
+    // for (let index = 0; index < allProducts.length; index++) {
+    //   const element = allProducts[index];
+    //   console.log(JSON.stringify(element))
+      
+    //   if(element.id == product.id){
+    //     tmp = index;
+    //     break;
+    //   }
+      
+    // }
+
+    let index = allProducts.indexOf(product)
     console.log(index)
 
-
-
-    // console.log("this is the increment function",productName);
-    // let allProducts = [...this.state.products]
-    // //this is the clone of the product array//
-    // let index = allProducts.indexOf(productName)
-    // console.log(index)
+    // console.log(tmp)
     
 
+
+
+
+
     
-  };
-
-  handleDecrement = (productName) =>{
-    console.log("this is the decrement functi",productName)
+    
     
 
-  };
+    }
 
-  buyNow =(productName)=>{
-    console.log("this is the buy now function and its calling the",productName )
+
+    handleDecrement = (product) => {
+      console.log(`You have decreased the number of ${product} `);
+      console.log(product.quantity)
+      if(product.quantity == 0){
+        return 0
+        
+      }else{
+        product.quantity -=1
+        
+
+      }
+    };
+
+
   }
+  // console.log(tmp)
+  
+                                            
+
+
+
+
+
 
   
-}
-
-// callMe =(Christine)=>{
-//   console.log("I am the one calling this baddie", Christine, "to come and see me")
-//
-
-//indie.addEventListener("click",()=>{
-//    callMe()
-//})
-// }
-
-
 
 
 
