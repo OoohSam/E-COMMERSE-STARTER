@@ -2,18 +2,34 @@ import React, { Component } from "react";
 import Product from "./Product";
 
 export default class ShoppingCart extends Component {
-  state = {
-    products: [
-      { id: 1, productName: "iPhone", price: 8900, quantity: 0 },
-      { id: 2, productName: "Sony Camera", price: 4500, quantity: 0 },
-      { id: 3, productName: "Samsung QLED TV", price: 77400, quantity: 0 },
-      { id: 4, productName: "iPad Pro", price: 12400, quantity: 0 },
-      { id: 5, productName: "Xbox", price: 7780, quantity: 0 },
-      { id: 6, productName: "Dell Monitor", price: 890, quantity: 0 },
-    ],
-  };
+
+
+  constructor(props){
+    console.log("the constructor is running")
+
+    super()
+
+
+    this.state = {
+      products: [
+        { id: 1, productName: "iPhone", price: 8900, quantity: 0 },
+        { id: 2, productName: "Sony Camera", price: 4500, quantity: 0 },
+        { id: 3, productName: "Samsung QLED TV", price: 77400, quantity: 0 },
+        { id: 4, productName: "iPad Pro", price: 12400, quantity: 0 },
+        { id: 5, productName: "Xbox", price: 7780, quantity: 0 },
+        { id: 6, productName: "Dell Monitor", price: 890, quantity: 0 },
+      ],
+    };
+  }
+
+ 
+    
+
+  
 
   render() {
+    console.log("the render function is running")
+
     return (
       <div className="container-fluid">
         <h4> Shopping cart</h4>
@@ -28,55 +44,44 @@ export default class ShoppingCart extends Component {
                 // price={price}
                 // quantity={quantity}
                 product = {x}
-                onIncrement = {this.handleIncrement}
+                onIncrement ={this.handleIncrement}
                 onDecrement = {this.handleDecrement}
+                onZero = {this.onPressZero}
               >
                 <button className="btn btn-primary" > Buy Now </button>
               </Product>
             );
           })}
-        </div>
+        </div> 
       </div>
     );
   }
 
 
-  handleIncrement = (product) => {
-    
-    console.log(`You have increased the number of ${JSON.stringify(product) }`);
-    let allProducts = [...this.state.products]
-    
+  handleIncrement =(product)=>{
+    console.log("this is the increment function that is being pressed as we speak")
+    let allProducts = [...this.state.product]
 
-    // let tmp = undefined;
 
-    // // console.log(allProducts)
+    let temp = undefined;
 
-    // for (let index = 0; index < allProducts.length; index++) {
-    //   const element = allProducts[index];
-    //   console.log(JSON.stringify(element))
+    for (let index = 0; index < allProducts.length; index++) {
+      const element = allProducts[index];
+
+      if(element.id == product.id){
+        temp = index
+        break;
+      }
+
       
-    //   if(element.id == product.id){
-    //     tmp = index;
-    //     break;
-    //   }
       
-    // }
-
-    let index = allProducts.indexOf(product)
-    console.log(index)
-
-    // console.log(tmp)
-    
-
-
-
-
-
-    
-    
-    
-
     }
+  }
+
+
+
+
+
 
 
     handleDecrement = (product) => {
@@ -92,8 +97,25 @@ export default class ShoppingCart extends Component {
       }
     };
 
+    onPressZero = (product) =>{
+      console.log("the number button has been pressed... please continue")
+    }
 
-  }
+
+
+
+    componentDidMount(){
+      console.log("the component has mounted")
+      
+    }
+
+
+  componentDidUpdate(prevProps,prevState){
+    console.log("the component did update")
+  }  
+  
+}
+
   // console.log(tmp)
   
                                             
