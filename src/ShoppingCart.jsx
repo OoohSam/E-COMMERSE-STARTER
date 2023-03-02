@@ -34,16 +34,16 @@ export default class ShoppingCart extends Component {
       <div className="container-fluid">
         <h4> Shopping cart</h4>
         <div className="row">
-          {this.state.products.map((x) => {
-            let { id, productName, price, quantity } = x;
+          {this.state.products.map((prod) => {
+           
 
             return (
               <Product
-                key={id}
+                key={prod.id}
                 // productName={productName}
                 // price={price}
                 // quantity={quantity}
-                product = {x}
+                product = {prod}
                 onIncrement ={this.handleIncrement}
                 onDecrement = {this.handleDecrement}
                 onZero = {this.onPressZero}
@@ -59,21 +59,24 @@ export default class ShoppingCart extends Component {
 
 
   handleIncrement =(product)=>{
+    console.log(product.id)
     console.log("this is the increment function that is being pressed as we speak")
-    let allProducts = [...this.state.product]
+    let allProducts = [...this.state.products]
 
 
-    let temp = undefined;
+    
 
     for (let index = 0; index < allProducts.length; index++) {
       const element = allProducts[index];
 
       if(element.id == product.id){
-        temp = index
+        element.quantity++
         break;
+      
       }
 
-      
+      this.setState( {products:allProducts})
+
       
     }
   }
@@ -85,17 +88,28 @@ export default class ShoppingCart extends Component {
 
 
     handleDecrement = (product) => {
-      console.log(`You have decreased the number of ${product} `);
-      console.log(product.quantity)
-      if(product.quantity == 0){
-        return 0
-        
-      }else{
-        product.quantity -=1
-        
+      let allProduct = [...this.state.products]
 
+      for (let index = 0; index < allProduct .length; index++) {
+        const element = allProduct[index];
+
+        if(element.id == product.id){
+          console.log("They are the same as i can see it")
+          element.quantity--
+          break;
+        }
+
+        this.setState( {product:allProduct} )
+        
       }
+
+
+
+
     };
+
+
+    
 
     onPressZero = (product) =>{
       console.log("the number button has been pressed... please continue")

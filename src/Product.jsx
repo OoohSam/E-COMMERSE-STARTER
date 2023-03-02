@@ -1,24 +1,23 @@
-import { extend } from "jquery";
+
 import React, { Component } from "react";
 
 export default class Product extends Component {
 
   constructor(props){
 
-    console.log("the child constructor is running")
-    super()
+    super(props)
 
 
     this.state = {
-      // id:this.props.id,
-      // productName:this.props.productName,
-      // price:this.props.price,
-      // quantity:this.props.quantity
       product: this.props.product,
     };
 
-
   }
+  
+
+ 
+
+
 
 
 
@@ -44,28 +43,24 @@ export default class Product extends Component {
                     //   this.props.onIncrement(this.state.product);
                     // }}
 
-                onClick={ ()=>{this.props.onIncrement(this.state.product)} }
+                    onClick={() => {
+                      this.props.onIncrement(this.state.product);
+                    }}
                     className="btn btn-outline-success"
                   >
                     +
                   </button>
 
-                      {/* This is the middle button to remind you how all this works for you */}
-                      
-                  <button className="btn btn-outline-primary"
-                          onClick={ ()=>{
-                            this.props.onZero(this.state.product)
-                          } }
+                  {/* This is the middle button to remind you how all this works for you */}
+
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => {
+                      this.props.onZero(this.state.product);
+                    }}
                   >
-
-                    <span className="badge">
-                      {this.props.product.quantity}
-                      </span>
-
-
+                    <span className="badge">{this.props.product.quantity}</span>
                   </button>
-
-
 
                   <button
                     onClick={() => {
@@ -89,21 +84,11 @@ export default class Product extends Component {
     );
   }
 
+  // componentDidMount(){
+  //   console.log("the component has mounted")
+  // }
 
-
-  componentDidMount(){
-    console.log("the component has mounted")
-  }
-
-
-  componentDidUpdate(prevProps,prevState){
-    console.log("The child updated")
-  }
-
-
-
-
-
+  // componentDidUpdate(prevProps,prevState){
+  //   console.log("The child updated")
+  // }
 }
-
-
